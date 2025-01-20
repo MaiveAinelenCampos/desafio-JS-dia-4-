@@ -1,0 +1,35 @@
+// Número máximo para el número a adivinar
+const NUMERO_MAXIMO = 10;
+
+// Función para generar un número aleatorio entre 0 y NUMERO_MAXIMO
+function generarNumeroAleatorio() {
+  return Math.floor(Math.random() * (NUMERO_MAXIMO + 1));
+}
+
+// Generar el número secreto al azar
+let numeroSecreto = generarNumeroAleatorio();
+
+// Número máximo de intentos
+const INTENTOS_MAXIMOS = 3;
+
+// Solicitar al usuario adivinar el número
+let intentosRestantes = INTENTOS_MAXIMOS;
+while (intentosRestantes > 0) {
+  let adivinanza = prompt("Adivina el número entre 0 y " + NUMERO_MAXIMO + ":");
+
+  if (adivinanza == numeroSecreto) {
+    console.log("¡Felicidades! ¡Adivinaste!");
+    break; // Salir del bucle si adivina
+  } else {
+    console.log("¡Incorrecto!");
+    intentosRestantes--;
+    if (intentosRestantes > 0) {
+      console.log("Te quedan " + intentosRestantes + " intentos.");
+    }
+  }
+}
+
+// Si se agotan los intentos, revelar el número secreto
+if (intentosRestantes == 0) {
+  console.log("No adivinaste. El número era: " + numeroSecreto);
+}
