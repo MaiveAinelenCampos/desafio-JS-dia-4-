@@ -1,0 +1,31 @@
+// Número a adivinar 
+let numeroSecreto = 9;
+
+// Número máximo de intentos
+const INTENTOS_MAXIMOS = 3;
+
+// Inicializar contador de intentos
+let intentosRestantes = INTENTOS_MAXIMOS;
+
+// Bucle para los intentos
+while (intentosRestantes > 0) {
+  // Pedir al usuario que adivine el número
+  let adivinanza = prompt("Adivina el número entre 0 y 10:");
+
+  // Comprobar si el usuario acertó
+  if (adivinanza == numeroSecreto) {
+    console.log("¡Felicidades! ¡Adivinaste!");
+    break; // Salir del bucle si acertó
+  } else {
+    console.log("¡Incorrecto!");
+    intentosRestantes--;
+    if (intentosRestantes > 0) {
+      console.log("Te quedan " + intentosRestantes + " intentos.");
+    }
+  }
+}
+
+// Si se agotan los intentos, revelar el número secreto
+if (intentosRestantes == 0) {
+  console.log("No adivinaste. El número era: " + numeroSecreto);
+}
